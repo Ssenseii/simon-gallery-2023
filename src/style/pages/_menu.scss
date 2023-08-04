@@ -1,0 +1,24 @@
+.menu {
+  position: absolute;
+  z-index: 4;
+  height: 100vh;
+  width: 100%;
+  @include Center;
+  background-color: var(--wineRed);
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-li {
+      margin-bottom: 48px;
+
+      &:last-child {
+        margin-bottom: none;
+      }
+    }
+  }
+}

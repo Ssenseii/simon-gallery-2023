@@ -1,0 +1,88 @@
+.work {
+  position: absolute;
+
+  width: 100%;
+
+  &__intro {
+    height: 100vh;
+
+    @include Center;
+    flex-direction: column;
+
+    &-title {
+      height: 90%;
+
+      @include Center;
+
+      h1 {
+        color: #F7E8C1;
+        text-align: center;
+        font-family: Century Gothic;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.05625rem;
+      }
+    }
+
+    &-arrow {
+      /// later
+    }
+  }
+
+  &__works {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 1.5rem;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-block: 4rem;
+      align-items: center;
+
+      h2 {
+        color: #F7E8C1;
+        text-align: center;
+        font-family: Century Gothic;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.04375rem;
+        margin-bottom: 8px;
+      }
+
+      .underline {
+        width: 2.625rem;
+        height: 0.125rem;
+        flex-shrink: 0;
+
+        border-radius: 0.375rem;
+        background: #F7E8C1;
+
+      }
+
+    }
+
+    &-images {
+
+      @include Center;
+      flex-direction: column;
+      gap: 4vmin;
+      user-select: none;
+
+      >.image {
+        width: 70vmin;
+        height: 80vmin;
+        object-fit: cover;
+        object-position: 100% center;
+        transition: width 0.2s ease-in-out;
+      }
+    }
+  }
+}

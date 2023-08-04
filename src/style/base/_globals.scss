@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  background-color: var(--wineRed);
+  
+  /// fonts
+  color: var(--Beige);
+  text-align: center;
+  font-family: Century Gothic;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+
+  /* 2.77431rem */
+  letter-spacing: 0.05625rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.overflow-hidden{
+  overflow: hidden;
+}
