@@ -40,4 +40,37 @@
       letter-spacing: 0.04375rem;
     }
 
+    &__list{
+      display: none;
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+
+  .nav{
+
+    position: static;
+    height: 4rem;
+    
+    &__burger{
+      display: none;
+    }
+
+    &__artist{
+      margin-left: 2rem;
+    }
+  
+    &__list{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+      width: 24rem;
+      list-style-type: none;
+
+    }
+  }
+
+  
 }

@@ -1,0 +1,28 @@
+.homescreen {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+
+  .homescreen {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    
+    &__social{
+      position: relative;
+      z-index: 2;
+      background-color: var(--wineRed);
+      height: calc(100vh - 4rem);
+      width: 6rem;
+    }
+
+    &__works{
+      height: calc(100vh - 4rem);
+      width: 100%;
+    }
+  
+  }
+
+}
