@@ -2,42 +2,47 @@ import React, { useState } from "react";
 import Contact from "./screens/Contact";
 import About from "./screens/About";
 import Work from "./screens/Work";
+import Title from "./screens/Title";
 
 function App() {
-  const [open, setOpen] = useState(false);
-
+  const [openMenu, setOpenMenu] = useState(false);
   const [workOpen, setWorkOpen] = useState(true);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+
+  const [bigTitle, setBigTitle] = useState("Works")
 
   const openWork = () => {
     setWorkOpen(true);
     setAboutOpen(false);
     setContactOpen(false);
-    setOpen(false);
+    setOpenMenu(false);
+    setBigTitle('Works')
   };
 
   const openAbout = () => {
     setWorkOpen(false);
     setAboutOpen(true);
     setContactOpen(false);
-    setOpen(false);
+    setOpenMenu(false);
+    setBigTitle('About')
   };
 
   const openContact = () => {
     setWorkOpen(false);
     setAboutOpen(false);
     setContactOpen(true);
-    setOpen(false);
+    setOpenMenu(false);
+    setBigTitle('Contact')
   };
 
   const handleClick = () => {
-    setOpen(!open);
-    console.log(open);
+    setOpenMenu(!openMenu);
+    console.log(openMenu);
   };
 
   return (
-    <div className={open ? "App overflow-hidden" : "App "}>
+    <div className={openMenu ? "App overflow-hidden" : "App "}>
       {/* Navigation Menu */}
       <nav className="nav">
         <button onClick={handleClick} className="nav__burger">
@@ -62,16 +67,18 @@ function App() {
       </nav>
 
       {/* Desktop */}
-
       <div className="homescreen">
         <section className="homescreen__social"></section>
-        <section className="homescreen__works">
-          <Work />
+        <section className="homescreen__components">
+          <Title title={bigTitle}></Title>
+          {workOpen && <Work />}
+          {aboutOpen && <About />}
+          {contactOpen && <Contact />}
         </section>
       </div>
 
       {/* Menu Open & close */}
-      {open && (
+      {openMenu && (
         <div className="menu">
           <ul className="menu__list">
             <li className="menu__list-li" onClick={openWork}>
@@ -88,10 +95,6 @@ function App() {
       )}
 
       {/* Conditional Screens */}
-
-      {workOpen && window.innerWidth <= 1279 && <Work />}
-      {aboutOpen && window.innerWidth <= 1279 && <About />}
-      {contactOpen && window.innerWidth <= 1279 && <Contact />}
     </div>
   );
 }

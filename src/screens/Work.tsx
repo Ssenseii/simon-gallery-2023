@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 const Work = () => {
   const [percentage, setPercentage] = useState(0);
   const [isPhone, setIsPhone] = useState(false)
+  const [opacity, setOpacity] = useState(1)
 
   useEffect(() => {
     const track: any = document.getElementById("image-track");
+    const title: any = document.getElementById("desktop-title");
 
     const handleOnDown = (e: any) => {
       track.dataset.mouseDownAt = e.clientX;
@@ -23,14 +25,16 @@ const Work = () => {
         maxDelta = window.innerWidth;
 
       const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained =
-          parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(
-          Math.min(nextPercentageUnconstrained, 0),
-          -100
-        );
+        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0),-100);
 
       setPercentage(nextPercentage);
+      setOpacity(0.4 - ((nextPercentage / 100) * -1))
+      console.log(nextPercentage)
+
+      if(nextPercentage === 0){
+        setOpacity(1)
+      }
 
       track.animate(
         {
@@ -41,6 +45,16 @@ const Work = () => {
           fill: "forwards",
         }
       );
+
+      title.animate(
+        {
+          opacity: `${opacity}`
+        },
+        {
+          duration: 1200,
+          fill: 'forwards'
+        }
+      )
 
       for (const image of track.getElementsByClassName("image")) {
         image.animate(
@@ -77,7 +91,7 @@ const Work = () => {
       window.removeEventListener("mousemove", handleOnMove);
       window.removeEventListener("touchmove", handleOnMove);
     };
-  }, [percentage, isPhone]);
+  }, [percentage, isPhone, opacity]);
 
   return (
     <div className="work ">

@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="about">
       <div className="about__title">
-        <h2 className="title">About</h2>
+        <h2>About</h2>
         <div className="underline"></div>
       </div>
       

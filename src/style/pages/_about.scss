@@ -13,7 +13,7 @@
     h2 {
       color: #F7E8C1;
       text-align: center;
-      font-family: Century Gothic;
+      font-family: 'Century Gothic';
       font-size: 0.875rem;
       font-style: normal;
       font-weight: 700;
@@ -69,6 +69,18 @@
 
 @media screen and (min-width: 1280px) {
   .about {
-    display: none;
+    width: 50%;
+
+    &__title{
+      display: none;
+    }
+
+    &__text{
+      width: 66ch;
+
+      h2{
+        font-size: 24px;
+      }
+    }
   }
 }

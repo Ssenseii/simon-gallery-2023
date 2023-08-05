@@ -1,0 +1,19 @@
+.title{
+  display: none;
+}
+
+
+@media screen and (min-width: 1280px) {
+  .title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__text {
+      font-size: 200px;
+      color: var(--Beige);
+      margin-left: 4rem;
+    }
+  }
+}

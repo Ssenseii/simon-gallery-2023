@@ -46,6 +46,10 @@
       margin-bottom: 1rem;
       padding: 1rem;
       color: var(--Beige);
+
+      &::placeholder {
+          color: var(--Beige);
+        }
     }
 
     &-message {
@@ -59,6 +63,10 @@
       padding: 1rem;
       color: var(--Beige);
       font-family: "Century Gothic";
+
+      &::placeholder{
+        color: var(--Beige);
+      }
     }
 
     &-submit {
@@ -135,6 +143,29 @@
 
 @media screen and (min-width: 1280px) {
   .contact {
-    display: none;
+    width: 50%;
+    &__title{
+      display: none;
+    }
+
+    &__input{
+      width: 70%;
+
+      &-email{
+        font-size: 18px;
+        height: 3rem;
+      }
+
+      &-message{
+        font-size: 18px;
+        height: 18rem;
+      }
+
+      &-submit{
+        width: 10rem;
+        height: 3rem;
+        font-size: 18px;
+      }
+    }
   }
 }
