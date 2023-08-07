@@ -5,12 +5,16 @@
   position: absolute;
   z-index: 12;
 
-  height: max-content;
-  
+  height: 100%;
+
   padding-block-start: 6rem;
 
   &__image {
-    width: 90vmin;
+    @include Center;
+
+    &-img {
+      width: 90vmin;
+    }
   }
 
   &__actions {
@@ -57,5 +61,36 @@
       letter-spacing: 0.04375rem;
     }
 
+  }
+}
+
+
+@media screen and (min-width: 1280px) {
+  .viewer {
+    display: flex;
+    flex-direction: row;
+
+    height: calc(100vh - 4rem);
+    padding: 0;
+
+    background-color: var(--wineRed);
+
+    &__image {
+      width: 50%;
+
+      &-img {
+        scale: 0.7
+      }
+    }
+
+    &__actions {
+      width: 20%;
+    }
+
+    &__actions {
+      &-back {
+        background-color: transparent;
+      }
+    }
   }
 }

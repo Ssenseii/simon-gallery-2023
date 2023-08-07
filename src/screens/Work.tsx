@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import {saveAs} from 'file-saver'
+import { saveAs } from "file-saver";
 
 const Work = () => {
   const [percentage, setPercentage] = useState(0); /// Percentage for translation
@@ -17,80 +17,102 @@ const Work = () => {
     const intro: any = document.getElementById("intro");
     const works: any = document.getElementById("works");
 
+    var memoPercentage: number;
+
     /// onClick take the mouse's coordinates
     const handleOnDown = (e: any) => {
-      track.dataset.mouseDownAt = e.clientX;
+      if (track) {
+        track.dataset.mouseDownAt = e.clientX;
+      }
     };
 
     /// onRelease
     const handleOnUp = () => {
-      track.dataset.mouseDownAt = "0";
-      track.dataset.prevPercentage = percentage;
+      if (track){
+        track.dataset.mouseDownAt = "0";
+        track.dataset.prevPercentage = percentage;
+      }
     };
 
     const handleOnMove = (e: any) => {
-      if (track.dataset.mouseDownAt === "0") return;
+      if (track) {
+        if (track.dataset.mouseDownAt === "0") return;
 
-      const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth;
+        const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+          maxDelta = window.innerWidth;
 
-      const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained =
-          parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(
-          Math.min(nextPercentageUnconstrained, 0),
-          -100
-        );
+        const percentage = (mouseDelta / maxDelta) * -100,
+          nextPercentageUnconstrained =
+            parseFloat(track.dataset.prevPercentage) + percentage,
+          nextPercentage = Math.max(
+            Math.min(nextPercentageUnconstrained, 0),
+            -100
+          );
 
-      setPercentage(nextPercentage);
-      setOpacity(0.4 - (nextPercentage / 100) * -1);
+        setPercentage(nextPercentage);
+        
+        setOpacity(0.4 - (nextPercentage / 100) * -1);
 
-      if (nextPercentage === 0) {
-        setOpacity(1);
-      }
-
-      track.animate(
-        {
-          transform: `translate(${nextPercentage}%, -50%)`,
-        },
-        {
-          duration: 1200,
-          fill: "forwards",
+        if (nextPercentage === 0) {
+          setOpacity(1);
         }
-      );
 
-      title.animate(
-        {
-          opacity: `${opacity}`,
-        },
-        {
-          duration: 1200,
-          fill: "forwards",
-        }
-      );
-
-      for (const image of track.getElementsByClassName("image")) {
-        image.animate(
+        track.animate(
           {
-            objectPosition: `${80 + nextPercentage}% center`,
+            transform: `translate(${nextPercentage}%, -50%)`,
           },
           {
             duration: 1200,
             fill: "forwards",
           }
         );
+
+        title.animate(
+          {
+            opacity: `${opacity}`,
+          },
+          {
+            duration: 1200,
+            fill: "forwards",
+          }
+        );
+
+        for (const image of track.getElementsByClassName("image")) {
+          image.animate(
+            {
+              objectPosition: `${80 + nextPercentage}% center`,
+            },
+            {
+              duration: 1200,
+              fill: "forwards",
+            }
+          );
+        }
       }
     };
 
     if (imageId !== "") {
       setToggleViewer(true);
-      intro.style.position = "absolute";
-      works.style.position = "absolute";
-      console.log("opening image viewer...");
+      /// keep hold of the memo in the viewer
     } else {
       setToggleViewer(false);
-      intro.style.position = "static";
-      works.style.position = "static";
+    }
+
+    if (toggleViewer) {
+      /// it works, do not add it to the code above or you'll break the desktop version
+      if (intro && works) {
+        intro.style.position = "absolute";
+        intro.style.opacity = "0";
+        works.style.position = "absolute";
+        works.style.opacity = "0";
+      }
+    } else {
+      if (intro && works) {
+        intro.style.position = "static";
+        intro.style.opacity = "1";
+        works.style.position = "static";
+        works.style.opacity = "1";
+      }
     }
 
     if (window.innerWidth >= 1279) {
@@ -98,6 +120,7 @@ const Work = () => {
     } else {
       setIsPhone(true);
     }
+
 
     window.addEventListener("mousedown", handleOnDown);
     window.addEventListener("mouseup", handleOnUp);
@@ -108,18 +131,15 @@ const Work = () => {
       window.removeEventListener("mouseup", handleOnUp);
       window.removeEventListener("mousemove", handleOnMove);
     };
-  }, [percentage, isPhone, opacity, imageId]);
-
+  }, [percentage, isPhone, opacity, imageId, toggleViewer]);
 
   const handleDownload = () => {
     var source = `images/${imageId}.jpg`;
-    saveAs(source, `${imageId}.jpg`)
-  }
-
+    saveAs(source, `${imageId}.jpg`);
+  };
 
   return (
     <div className="work ">
-      {!toggleViewer && (
         <section id="intro" className="work__intro">
           <div className="work__intro-title">
             <motion.div
@@ -161,9 +181,8 @@ const Work = () => {
             />
           </motion.svg>
         </section>
-      )}
 
-      {!toggleViewer && (
+      
         <section id="works" className="work__works">
           <div className="work__works-title">
             <h2>Works</h2>
@@ -282,16 +301,24 @@ const Work = () => {
             />
           </div>
         </section>
-      )}
+    
+    
       {toggleViewer && (
         <div className="viewer">
+          <div className="viewer__image">
           <img
-            className="viewer__image"
+            className="viewer__image-img"
             src={`images/${imageId}.jpg`}
             alt={imageId}
           />
+          </div>
           <div className="viewer__actions">
-            <button onClick={() => {handleDownload()}} className="viewer__actions-save">
+            <button
+              onClick={() => {
+                handleDownload();
+              }}
+              className="viewer__actions-save"
+            >
               Save to your Library
             </button>
             <button
