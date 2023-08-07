@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import {saveAs} from 'file-saver'
 
 const Work = () => {
   const [percentage, setPercentage] = useState(0); /// Percentage for translation
@@ -108,6 +109,13 @@ const Work = () => {
       window.removeEventListener("mousemove", handleOnMove);
     };
   }, [percentage, isPhone, opacity, imageId]);
+
+
+  const handleDownload = () => {
+    var source = `images/${imageId}.jpg`;
+    saveAs(source, `${imageId}.jpg`)
+  }
+
 
   return (
     <div className="work ">
@@ -283,7 +291,7 @@ const Work = () => {
             alt={imageId}
           />
           <div className="viewer__actions">
-            <button className="viewer__actions-save">
+            <button onClick={() => {handleDownload()}} className="viewer__actions-save">
               Save to your Library
             </button>
             <button

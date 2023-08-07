@@ -1,16 +1,16 @@
 .viewer {
   width: 100%;
-  height: 100vh;
   background-color: var(--black);
-  overflow: hidden;
 
   position: absolute;
   z-index: 12;
 
+  height: max-content;
+  
   padding-block-start: 6rem;
 
   &__image {
-    width: 100vmin;
+    width: 90vmin;
   }
 
   &__actions {
