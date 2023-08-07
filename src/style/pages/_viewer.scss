@@ -1,0 +1,61 @@
+.viewer {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black);
+  overflow: hidden;
+
+  position: absolute;
+  z-index: 12;
+
+  padding-block-start: 6rem;
+
+  &__image {
+    width: 100vmin;
+  }
+
+  &__actions {
+    @include Center;
+    flex-direction: column;
+    padding: 2rem;
+
+    &-save {
+      width: 12.5rem;
+      height: 3.125rem;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      background-color: var(--Orange);
+      border: none;
+
+      color: var(--black);
+      color: #07010C;
+      text-align: center;
+      font-family: Century Gothic;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 0.04375rem;
+
+      margin-bottom: 1.37rem;
+    }
+
+    &-back {
+      width: 12.5rem;
+      height: 3.125rem;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      border: 1px solid #F28357;
+      background: #07010C;
+
+      color: #F28357;
+      text-align: center;
+      font-family: Century Gothic;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 0.04375rem;
+    }
+
+  }
+}

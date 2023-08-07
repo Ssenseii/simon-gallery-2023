@@ -1,5 +1,6 @@
 .title{
   display: none;
+
 }
 
 
@@ -9,6 +10,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    user-select: none;
 
     &__text {
       font-size: 200px;

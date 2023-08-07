@@ -1,20 +1,39 @@
 .work {
   position: absolute;
-
   width: 100%;
+  z-index: 1;
+  height: 100vh;
+
+  overflow: auto;
 
   &__intro {
     height: 100vh;
-
     @include Center;
     flex-direction: column;
 
     &-title {
+      position: relative;
       height: 90%;
-
       @include Center;
 
-      h1 {
+      &-bigCircle {
+        position: absolute;
+        width: 14rem;
+        height: 14rem;
+        border: 1px dashed var(--Beige);
+        border-radius: 50%;
+        animation: rotateZ infinite 45s;
+      }
+
+      &-smallCircle {
+        position: absolute;
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+        border: 1px dashed var(--Beige);
+      }
+
+      &-text {
         color: #F7E8C1;
         text-align: center;
         font-family: Century Gothic;
@@ -24,6 +43,10 @@
         line-height: normal;
         letter-spacing: 0.05625rem;
       }
+    }
+
+    &-arrow {
+      margin-bottom: 2rem;
     }
 
   }
@@ -94,8 +117,6 @@
     }
 
     &__works {
-      display: flex;
-      flex-direction: column;
 
       height: 100vh;
       width: 100vw;
@@ -115,13 +136,13 @@
         transform: translate(0%, -50%);
         user-select: none; /// Prevent the highlight of image
 
-
         >.image {
-          width: 50vmin;
+          width: 60vmin;
           height: 80vmin;
           object-fit: cover;
-          object-position: 100% center;
+          object-position: 100% 100%;
           transition: width 0.2s ease-in-out;
+          box-shadow: 10px 10px 5px 0px darken(#430F18, 5);
 
         }
 
