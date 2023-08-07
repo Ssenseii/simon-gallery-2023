@@ -1,5 +1,29 @@
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form: any = useRef();
+
+    const sendEmail = (e: any) => {
+      e.preventDefault();
+
+      emailjs
+        .sendForm(
+          "service_k51bso9",
+          "template_7e3t07s",
+          form.current,
+          "l596VIqccy6B-uih8"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    };
+
   return (
     <div className="contact">
       <div className="contact__title">
@@ -7,13 +31,18 @@ const Contact = () => {
         <div className="underline"></div>
       </div>
 
-      <form className="contact__input">
+      <form ref={form} onSubmit={sendEmail} className="contact__input">
         <input
+          name="user_email"
           className="contact__input-email"
           type="email"
           placeholder="Email..."
         />
-        <textarea className="contact__input-message" placeholder="Message..." />
+        <textarea
+          name="user_message"
+          className="contact__input-message"
+          placeholder="Message..."
+        />
         <input className="contact__input-submit" type="submit" />
       </form>
 
@@ -30,6 +59,6 @@ const Contact = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Contact
+export default Contact;

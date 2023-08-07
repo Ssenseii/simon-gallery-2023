@@ -96,7 +96,7 @@ function App() {
           <div className="line line-bottom"></div>
         </motion.button>
         <div className="nav__artist">
-          <p className="nav__artist-name">{openMenu? "Main Menu": "Simon Reinhardt"}</p>
+          <p className="nav__artist-name">{openMenu? "Main Menu": " "}</p>
         </div>
 
         {/* Desktop nav*/}
