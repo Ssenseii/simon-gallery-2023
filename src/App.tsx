@@ -5,6 +5,7 @@ import Contact from "./screens/Contact";
 import About from "./screens/About";
 import Work from "./screens/Work";
 import Title from "./components/Title";
+import StaticTitle from "./components/StaticTitle";
 import { useAnimate, AnimatePresence, motion } from "framer-motion";
 
 /// Menu Animation
@@ -42,9 +43,10 @@ function App() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
 
+  /// This is so hacky but it works
   const [bigTitle, setBigTitle] = useState("Works"); /// Toggle Big Title in desktop Mode
-
-  
+  const [bigTitleExists, setBigTitleExists] = useState(true); /// Toggle existence of Big Title in desktop Mode
+  const [bigStaticTitle, setBigStaticTitle] = useState(""); /// Toggle Big Static Title in desktop Mode
 
   /// Sub Functions
 
@@ -57,6 +59,8 @@ function App() {
     setContactOpen(false);
     setOpenMenu(false);
     setBigTitle("Works");
+    setBigTitleExists(true);
+    setBigStaticTitle("");
   };
 
   const openAbout = () => {
@@ -64,7 +68,9 @@ function App() {
     setAboutOpen(true);
     setContactOpen(false);
     setOpenMenu(false);
-    setBigTitle("About");
+    setBigTitle("");
+    setBigTitleExists(false);
+    setBigStaticTitle("About");
   };
 
   const openContact = () => {
@@ -72,7 +78,9 @@ function App() {
     setAboutOpen(false);
     setContactOpen(true);
     setOpenMenu(false);
-    setBigTitle("Contact");
+    setBigTitle("");
+    setBigTitleExists(false);
+    setBigStaticTitle("Contact");
   };
 
   const handleClick = () => {
@@ -118,7 +126,10 @@ function App() {
       {/* Screens */}
       <div className="homescreen">
         <section className="homescreen__components">
-          <Title title={bigTitle}></Title>
+          {!bigTitleExists && (
+            <StaticTitle staticTitle={bigStaticTitle}></StaticTitle>
+          )}
+          {bigTitleExists && <Title title={bigTitle}></Title>}
           {workOpen && <Work />}
           {aboutOpen && <About />}
           {contactOpen && <Contact />}

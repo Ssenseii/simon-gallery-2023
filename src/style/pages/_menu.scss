@@ -20,6 +20,10 @@
       @include Center;
       margin-bottom: 36px;
 
+      &:active{
+        scale: 0.8
+      }
+
       &:last-child {
         margin-bottom: none;
       }

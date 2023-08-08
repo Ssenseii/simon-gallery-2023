@@ -75,6 +75,10 @@
           cursor: pointer;
           text-decoration: underline;
         }
+
+        &:active{
+          scale: 0.95
+        }
       }
     }
   }

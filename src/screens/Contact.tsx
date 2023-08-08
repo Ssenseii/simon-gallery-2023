@@ -4,25 +4,25 @@ import emailjs from "@emailjs/browser";
 const Contact = () => {
   const form: any = useRef();
 
-    const sendEmail = (e: any) => {
-      e.preventDefault();
+  const sendEmail = (e: any) => {
+    e.preventDefault();
 
-      emailjs
-        .sendForm(
-          "service_k51bso9",
-          "template_7e3t07s",
-          form.current,
-          "l596VIqccy6B-uih8"
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
-    };
+    emailjs
+      .sendForm(
+        "service_k51bso9",
+        "template_7e3t07s",
+        form.current,
+        "l596VIqccy6B-uih8"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   return (
     <div className="contact">
@@ -52,9 +52,27 @@ const Contact = () => {
           <div className="underline"></div>
         </div>
         <div className="contact__social-links">
-          <a href="twitter.com">Twitter</a>
-          <a href="instagram.com">Instagram</a>
-          <a href="github.com">Github</a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          >
+            Twitter
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.instagram.com/__ssensseiii/"
+          >
+            Instagram
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/ssenseii"
+          >
+            Github
+          </a>
         </div>
       </div>
     </div>

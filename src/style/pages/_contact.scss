@@ -1,11 +1,11 @@
 .contact {
   position: absolute;
-  height: 100vh;
   @include Center;
   flex-direction: column;
 
   width: 100%;
 
+  padding-block: 4rem;
   &__title {
     margin-block: 4rem;
 
@@ -144,6 +144,8 @@
 @media screen and (min-width: 1280px) {
   .contact {
     width: 50%;
+    height: 100vh;
+
     &__title{
       display: none;
     }
@@ -165,6 +167,17 @@
         width: 10rem;
         height: 3rem;
         font-size: 18px;
+        
+        &:hover{
+          cursor: pointer;
+        }
+
+        &:active {
+            scale: 0.97;
+            background-color: transparent;
+            color: var(--Orange);
+            border: 1px solid var(--Orange);
+          }
       }
     }
   }
