@@ -23,7 +23,7 @@ const About = () => {
           </h2>
         </div>
         <div className="about__text-segment">
-          <h2>Made in 2023, by Simon Reinhardt</h2>
+          <h2>Made with React in 3 days while rewatching "The Wire"</h2>
         </div>
       </div>
     </div>
