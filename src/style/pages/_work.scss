@@ -135,6 +135,14 @@
         transform: translate(0%, -50%);
         user-select: none; /// Prevent the highlight of image
 
+        &:hover{
+          cursor: grab;
+        }
+
+        &:active{
+          cursor: grabbing;
+        }
+
         >.image {
           width: 60vmin;
           height: 80vmin;

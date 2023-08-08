@@ -299,6 +299,146 @@ const Work = () => {
                   setImageId("10");
                 }}
               />
+              <img
+                id="11"
+                className="image"
+                draggable="false"
+                src="images/11.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("11");
+                }}
+              />
+              <img
+                id="12"
+                className="image"
+                draggable="false"
+                src="images/12.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("12");
+                }}
+              />
+              <img
+                id="13"
+                className="image"
+                draggable="false"
+                src="images/13.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("13");
+                }}
+              />
+              <img
+                id="14"
+                className="image"
+                draggable="false"
+                src="images/14.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("14");
+                }}
+              />
+              <img
+                id="15"
+                className="image"
+                draggable="false"
+                src="images/15.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("15");
+                }}
+              />
+              <img
+                id="16"
+                className="image"
+                draggable="false"
+                src="images/16.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("16");
+                }}
+              />
+              <img
+                id="17"
+                className="image"
+                draggable="false"
+                src="images/17.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("17");
+                }}
+              />
+              <img
+                id="18"
+                className="image"
+                draggable="false"
+                src="images/18.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("18");
+                }}
+              />
+              <img
+                id="19"
+                className="image"
+                draggable="false"
+                src="images/19.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("19");
+                }}
+              />
+              <img
+                id="20"
+                className="image"
+                draggable="false"
+                src="images/20.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("20");
+                }}
+              />
+              <img
+                id="21"
+                className="image"
+                draggable="false"
+                src="images/21.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("21");
+                }}
+              />
+              <img
+                id="23"
+                className="image"
+                draggable="false"
+                src="images/23.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("23");
+                }}
+              />
+              <img
+                id="24"
+                className="image"
+                draggable="false"
+                src="images/24.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("24");
+                }}
+              />
+              <img
+                id="25"
+                className="image"
+                draggable="false"
+                src="images/25.jpg"
+                alt=""
+                onClick={() => {
+                  setImageId("25");
+                }}
+              />
             </motion.div>
           </section>
         )}
@@ -500,6 +640,146 @@ const Work = () => {
               alt=""
               onClick={() => {
                 setImageId("10");
+              }}
+            />
+            <img
+              id="11"
+              className="image"
+              draggable="false"
+              src="images/11.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("11");
+              }}
+            />
+            <img
+              id="12"
+              className="image"
+              draggable="false"
+              src="images/12.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("12");
+              }}
+            />
+            <img
+              id="13"
+              className="image"
+              draggable="false"
+              src="images/13.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("13");
+              }}
+            />
+            <img
+              id="14"
+              className="image"
+              draggable="false"
+              src="images/14.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("14");
+              }}
+            />
+            <img
+              id="15"
+              className="image"
+              draggable="false"
+              src="images/15.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("15");
+              }}
+            />
+            <img
+              id="16"
+              className="image"
+              draggable="false"
+              src="images/16.jpg"
+              alt=""
+              onDoubleClick={() => {
+                setImageId("16");
+              }}
+            />
+            <img
+              id="17"
+              className="image"
+              draggable="false"
+              src="images/17.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("17");
+              }}
+            />
+            <img
+              id="18"
+              className="image"
+              draggable="false"
+              src="images/18.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("18");
+              }}
+            />
+            <img
+              id="19"
+              className="image"
+              draggable="false"
+              src="images/19.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("19");
+              }}
+            />
+            <img
+              id="20"
+              className="image"
+              draggable="false"
+              src="images/20.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("20");
+              }}
+            />
+            <img
+              id="21"
+              className="image"
+              draggable="false"
+              src="images/21.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("21");
+              }}
+            />
+            <img
+              id="23"
+              className="image"
+              draggable="false"
+              src="images/23.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("23");
+              }}
+            />
+            <img
+              id="24"
+              className="image"
+              draggable="false"
+              src="images/24.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("24");
+              }}
+            />
+            <img
+              id="25"
+              className="image"
+              draggable="false"
+              src="images/25.jpg"
+              alt=""
+              onClick={() => {
+                setImageId("25");
               }}
             />
           </motion.div>
