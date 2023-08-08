@@ -69,18 +69,19 @@
   .viewer {
     display: flex;
     flex-direction: row;
+    @include Center;
 
     height: calc(100vh - 4rem);
     padding: 0;
 
-    background-color: var(--wineRed);
+    background: linear-gradient(90deg, hsla(350, 63%, 16%, 1) 0%, hsla(350, 71%, 21%, 1) 100%);
 
     &__image {
       width: 50%;
-
+      
       &-img {
-        scale: 0.7
-      }
+        scale: 0.7;
+          box-shadow: 20px 20px 20px 5px darken(#430F18, 5);      }
     }
 
     &__actions {

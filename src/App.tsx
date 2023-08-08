@@ -44,6 +44,8 @@ function App() {
 
   const [bigTitle, setBigTitle] = useState("Works"); /// Toggle Big Title in desktop Mode
 
+  
+
   /// Sub Functions
 
   /// functions for opening and closing
@@ -96,7 +98,7 @@ function App() {
           <div className="line line-bottom"></div>
         </motion.button>
         <div className="nav__artist">
-          <p className="nav__artist-name">{openMenu? "Main Menu": " "}</p>
+          <p className="nav__artist-name">{openMenu ? "Main Menu" : " "}</p>
         </div>
 
         {/* Desktop nav*/}
@@ -133,25 +135,14 @@ function App() {
             exit={{ x: 500 }}
             transition={{ type: "just" }}
           >
-            <ul
-              className="menu__list"
-            >
-              <li
-                className="menu__list-li"
-                onClick={openWork}
-              >
+            <ul className="menu__list">
+              <li className="menu__list-li" onClick={openWork}>
                 Works
               </li>
-              <li
-                className="menu__list-li"
-                onClick={openAbout}
-              >
+              <li className="menu__list-li" onClick={openAbout}>
                 About
               </li>
-              <li
-                className="menu__list-li"
-                onClick={openContact}
-              >
+              <li className="menu__list-li" onClick={openContact}>
                 Contact
               </li>
             </ul>
