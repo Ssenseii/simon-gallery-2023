@@ -1,21 +1,21 @@
 /// This is the source of the scroll using mouse click
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { saveAs } from "file-saver";
 
 const Work = () => {
   const [percentage, setPercentage] = useState(0); /// Percentage for translation
   const [isPhone, setIsPhone] = useState(false); /// Checks if its a phone or not
-  const [opacity, setOpacity] = useState(1); /// Controls the Opacity of the title
+  const [opacity, setOpacity] = useState(1); /// Controls the opacity of the dynamic title
   const [imageId, setImageId] = useState(""); /// setting the image for the Viewer
-  const [toggleViewer, setToggleViewer] = useState(false); /// setting the image for the Viewer
+  const [toggleViewer, setToggleViewer] = useState(false); /// toggling the image viewer
 
   useEffect(() => {
     const track: any = document.getElementById("image-track"); /// store the id of the image rack
     const title: any = document.getElementById("desktop-title"); /// store the id of the big desktop title
-    const intro: any = document.getElementById("intro");
-    const works: any = document.getElementById("works");
+    const intro: any = document.getElementById("intro"); /// intro section id
+    const works: any = document.getElementById("works"); /// works section id
 
     /// onClick take the mouse's coordinates
     const handleOnDown = (e: any) => {
@@ -32,6 +32,7 @@ const Work = () => {
       }
     };
 
+    /// onMove
     const handleOnMove = (e: any) => {
       if (track) {
         if (track.dataset.mouseDownAt === "0") return;
@@ -48,12 +49,13 @@ const Work = () => {
           );
 
         setPercentage(nextPercentage);
-
         setOpacity(0.4 - (nextPercentage / 100) * -1);
 
-        if (nextPercentage === 0) {
+        if (nextPercentage === 0) { /// reset the dynamic title 
           setOpacity(1);
         }
+
+        /// image-track animation
 
         track.animate(
           {
@@ -75,10 +77,11 @@ const Work = () => {
           }
         );
 
+        /// parallax effect (in works)
         for (const image of track.getElementsByClassName("image")) {
           image.animate(
             {
-              objectPosition: `${80 + nextPercentage}% center`,
+              objectPosition: `${nextPercentage}% center`,
             },
             {
               duration: 1200,
@@ -89,15 +92,15 @@ const Work = () => {
       }
     };
 
+      /// toggle the viewer after an image is selected
     if (imageId !== "") {
       setToggleViewer(true);
-      /// keep hold of the memo in the viewer
     } else {
       setToggleViewer(false);
     }
 
     if (toggleViewer) {
-      /// it works, do not add it to the code above or you'll break the desktop version
+      /// it works, do not add these to the code above or you'll break the desktop version
       if (intro && works) {
         intro.style.position = "absolute";
         intro.style.opacity = "0";
@@ -113,6 +116,7 @@ const Work = () => {
       }
     }
 
+    /// check if it's a phone or not
     if (window.innerWidth >= 1279) {
       setIsPhone(false);
     } else {
