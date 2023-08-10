@@ -11,6 +11,47 @@ const Work = () => {
   const [imageId, setImageId] = useState(""); /// setting the image for the Viewer
   const [toggleViewer, setToggleViewer] = useState(false); /// toggling the image viewer
 
+  const numbers = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+  ];
+
+  const illustrations = numbers.map((num) => (
+    <img
+      id={num}
+      className="image"
+      draggable="false"
+      src={`images/${num}.jpg`}
+      alt=""
+      onClick={() => {
+        setImageId(num);
+      }}
+    />
+  ));
+
   useEffect(() => {
     const track: any = document.getElementById("image-track"); /// store the id of the image rack
     const title: any = document.getElementById("desktop-title"); /// store the id of the big desktop title
@@ -51,7 +92,8 @@ const Work = () => {
         setPercentage(nextPercentage);
         setOpacity(0.4 - (nextPercentage / 100) * -1);
 
-        if (nextPercentage === 0) { /// reset the dynamic title 
+        if (nextPercentage === 0) {
+          /// reset the dynamic title
           setOpacity(1);
         }
 
@@ -92,7 +134,7 @@ const Work = () => {
       }
     };
 
-      /// toggle the viewer after an image is selected
+    /// toggle the viewer after an image is selected
     if (imageId !== "") {
       setToggleViewer(true);
     } else {
@@ -203,246 +245,7 @@ const Work = () => {
               }
               /// transform: `translate(${percentage}%, -50%)`
             >
-              <motion.img
-                id="1"
-                className="image"
-                draggable="false"
-                src="images/1.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("1");
-                }}
-              />
-              <motion.img
-                id="2"
-                className="image"
-                draggable="false"
-                src="images/2.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("2");
-                }}
-              />
-              <img
-                id="3"
-                className="image"
-                draggable="false"
-                src="images/3.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("3");
-                }}
-              />
-              <img
-                id="4"
-                className="image"
-                draggable="false"
-                src="images/4.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("4");
-                }}
-              />
-              <img
-                id="5"
-                className="image"
-                draggable="false"
-                src="images/5.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("5");
-                }}
-              />
-              <img
-                id="6"
-                className="image"
-                draggable="false"
-                src="images/6.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("6");
-                }}
-              />
-              <img
-                id="7"
-                className="image"
-                draggable="false"
-                src="images/7.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("7");
-                }}
-              />
-              <img
-                id="8"
-                className="image"
-                draggable="false"
-                src="images/8.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("8");
-                }}
-              />
-              <img
-                id="9"
-                className="image"
-                draggable="false"
-                src="images/9.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("9");
-                }}
-              />
-              <img
-                id="10"
-                className="image"
-                draggable="false"
-                src="images/10.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("10");
-                }}
-              />
-              <img
-                id="11"
-                className="image"
-                draggable="false"
-                src="images/11.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("11");
-                }}
-              />
-              <img
-                id="12"
-                className="image"
-                draggable="false"
-                src="images/12.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("12");
-                }}
-              />
-              <img
-                id="13"
-                className="image"
-                draggable="false"
-                src="images/13.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("13");
-                }}
-              />
-              <img
-                id="14"
-                className="image"
-                draggable="false"
-                src="images/14.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("14");
-                }}
-              />
-              <img
-                id="15"
-                className="image"
-                draggable="false"
-                src="images/15.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("15");
-                }}
-              />
-              <img
-                id="16"
-                className="image"
-                draggable="false"
-                src="images/16.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("16");
-                }}
-              />
-              <img
-                id="17"
-                className="image"
-                draggable="false"
-                src="images/17.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("17");
-                }}
-              />
-              <img
-                id="18"
-                className="image"
-                draggable="false"
-                src="images/18.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("18");
-                }}
-              />
-              <img
-                id="19"
-                className="image"
-                draggable="false"
-                src="images/19.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("19");
-                }}
-              />
-              <img
-                id="20"
-                className="image"
-                draggable="false"
-                src="images/20.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("20");
-                }}
-              />
-              <img
-                id="21"
-                className="image"
-                draggable="false"
-                src="images/21.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("21");
-                }}
-              />
-              <img
-                id="23"
-                className="image"
-                draggable="false"
-                src="images/23.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("23");
-                }}
-              />
-              <img
-                id="24"
-                className="image"
-                draggable="false"
-                src="images/24.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("24");
-                }}
-              />
-              <img
-                id="25"
-                className="image"
-                draggable="false"
-                src="images/25.jpg"
-                alt=""
-                onClick={() => {
-                  setImageId("25");
-                }}
-              />
+              {illustrations}
             </motion.div>
           </section>
         )}
@@ -540,252 +343,7 @@ const Work = () => {
             }
             /// transform: `translate(${percentage}%, -50%)`
           >
-            <motion.img
-              id="1"
-              className="image"
-              draggable="false"
-              src="images/1.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("1");
-              }}
-              initial={{ x: 14 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 0.5 }}
-            />
-            <motion.img
-              id="2"
-              className="image"
-              draggable="false"
-              src="images/2.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("2");
-              }}
-              initial={{ x: 14 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 0.5 }}
-            />
-            <img
-              id="3"
-              className="image"
-              draggable="false"
-              src="images/3.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("3");
-              }}
-            />
-            <img
-              id="4"
-              className="image"
-              draggable="false"
-              src="images/4.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("4");
-              }}
-            />
-            <img
-              id="5"
-              className="image"
-              draggable="false"
-              src="images/5.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("5");
-              }}
-            />
-            <img
-              id="6"
-              className="image"
-              draggable="false"
-              src="images/6.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("6");
-              }}
-            />
-            <img
-              id="7"
-              className="image"
-              draggable="false"
-              src="images/7.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("7");
-              }}
-            />
-            <img
-              id="8"
-              className="image"
-              draggable="false"
-              src="images/8.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("8");
-              }}
-            />
-            <img
-              id="9"
-              className="image"
-              draggable="false"
-              src="images/9.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("9");
-              }}
-            />
-            <img
-              id="10"
-              className="image"
-              draggable="false"
-              src="images/10.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("10");
-              }}
-            />
-            <img
-              id="11"
-              className="image"
-              draggable="false"
-              src="images/11.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("11");
-              }}
-            />
-            <img
-              id="12"
-              className="image"
-              draggable="false"
-              src="images/12.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("12");
-              }}
-            />
-            <img
-              id="13"
-              className="image"
-              draggable="false"
-              src="images/13.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("13");
-              }}
-            />
-            <img
-              id="14"
-              className="image"
-              draggable="false"
-              src="images/14.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("14");
-              }}
-            />
-            <img
-              id="15"
-              className="image"
-              draggable="false"
-              src="images/15.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("15");
-              }}
-            />
-            <img
-              id="16"
-              className="image"
-              draggable="false"
-              src="images/16.jpg"
-              alt=""
-              onDoubleClick={() => {
-                setImageId("16");
-              }}
-            />
-            <img
-              id="17"
-              className="image"
-              draggable="false"
-              src="images/17.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("17");
-              }}
-            />
-            <img
-              id="18"
-              className="image"
-              draggable="false"
-              src="images/18.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("18");
-              }}
-            />
-            <img
-              id="19"
-              className="image"
-              draggable="false"
-              src="images/19.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("19");
-              }}
-            />
-            <img
-              id="20"
-              className="image"
-              draggable="false"
-              src="images/20.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("20");
-              }}
-            />
-            <img
-              id="21"
-              className="image"
-              draggable="false"
-              src="images/21.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("21");
-              }}
-            />
-            <img
-              id="23"
-              className="image"
-              draggable="false"
-              src="images/23.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("23");
-              }}
-            />
-            <img
-              id="24"
-              className="image"
-              draggable="false"
-              src="images/24.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("24");
-              }}
-            />
-            <img
-              id="25"
-              className="image"
-              draggable="false"
-              src="images/25.jpg"
-              alt=""
-              onClick={() => {
-                setImageId("25");
-              }}
-            />
+            {illustrations}
           </motion.div>
         </section>
 
