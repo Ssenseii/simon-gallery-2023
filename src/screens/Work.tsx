@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { saveAs } from "file-saver";
+import Viewer from "../components/Viewer";
 
 const Work = () => {
   const [percentage, setPercentage] = useState(0); /// Percentage for translation
@@ -176,10 +176,11 @@ const Work = () => {
     };
   }, [percentage, isPhone, opacity, imageId, toggleViewer]);
 
-  const handleDownload = () => {
-    var source = `images/${imageId}.jpg`;
-    saveAs(source, `${imageId}.jpg`);
-  };
+
+  const handleToggleViewer = () => {
+    setToggleViewer(false);
+    setImageId("");
+  }
 
   if (isPhone) {
     return (
@@ -250,36 +251,7 @@ const Work = () => {
           </section>
         )}
 
-        {toggleViewer && (
-          <div className="viewer">
-            <div className="viewer__image">
-              <img
-                className="viewer__image-img"
-                src={`images/${imageId}.jpg`}
-                alt={imageId}
-              />
-            </div>
-            <div className="viewer__actions">
-              <button
-                onClick={() => {
-                  handleDownload();
-                }}
-                className="viewer__actions-save"
-              >
-                Save to your Library
-              </button>
-              <button
-                onClick={() => {
-                  setToggleViewer(false);
-                  setImageId("");
-                }}
-                className="viewer__actions-back"
-              >
-                Back to Works
-              </button>
-            </div>
-          </div>
-        )}
+        {toggleViewer && <Viewer id={imageId} function={handleToggleViewer} />}
       </div>
     );
   } else {
@@ -348,34 +320,7 @@ const Work = () => {
         </section>
 
         {toggleViewer && (
-          <div className="viewer">
-            <div className="viewer__image">
-              <img
-                className="viewer__image-img"
-                src={`images/${imageId}.jpg`}
-                alt={imageId}
-              />
-            </div>
-            <div className="viewer__actions">
-              <button
-                onClick={() => {
-                  handleDownload();
-                }}
-                className="viewer__actions-save"
-              >
-                Save to your Library
-              </button>
-              <button
-                onClick={() => {
-                  setToggleViewer(false);
-                  setImageId("");
-                }}
-                className="viewer__actions-back"
-              >
-                Back to Works
-              </button>
-            </div>
-          </div>
+          <Viewer id={imageId} function={handleToggleViewer} />
         )}
       </div>
     );

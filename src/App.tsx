@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 import Contact from "./screens/Contact";
 import About from "./screens/About";
 import Work from "./screens/Work";
-import Title from "./components/Title";
-import StaticTitle from "./components/StaticTitle";
+import Title, {StaticTitle} from "./components/Title";
 import { useAnimate, AnimatePresence, motion } from "framer-motion";
 
 /// Menu Animation
@@ -126,10 +125,7 @@ function App() {
       {/* Screens */}
       <div className="homescreen">
         <section className="homescreen__components">
-          {!bigTitleExists && (
-            <StaticTitle staticTitle={bigStaticTitle}></StaticTitle>
-          )}
-          {bigTitleExists && <Title title={bigTitle}></Title>}
+          {bigTitleExists ? <Title dynamicTitle={bigTitle}></Title> : <StaticTitle staticTitle={bigStaticTitle}></StaticTitle>}
           {workOpen && <Work />}
           {aboutOpen && <About />}
           {contactOpen && <Contact />}
