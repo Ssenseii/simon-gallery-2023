@@ -1,9 +1,9 @@
 # SIMONSGALLERY
 
-**date**: 10 aug. 2023
-**Time Span**: 3 days
-**languages**: REACT --typescript (hardly)
-**Description**: Display of Illustrations.
+- **date**: 10 aug. 2023
+- **Time Span**: 3 days
+- **languages**: REACT --typescript (hardly)
+- **Description**: Display of Illustrations.
 
 ## Problems to Solve:
     - Create a notice for email sent
