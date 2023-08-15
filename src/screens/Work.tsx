@@ -11,6 +11,8 @@ const Work = () => {
   const [imageId, setImageId] = useState(""); /// setting the image for the Viewer
   const [toggleViewer, setToggleViewer] = useState(false); /// toggling the image viewer
 
+
+  /// I'm keeping this array just to make myself laugh in the future
   const numbers = [
     "1",
     "2",
@@ -97,8 +99,8 @@ const Work = () => {
           setOpacity(1);
         }
 
-        /// image-track animation
 
+        /// image-track animation
         track.animate(
           {
             transform: `translate(${nextPercentage}%, -50%)`,
@@ -142,7 +144,7 @@ const Work = () => {
     }
 
     if (toggleViewer) {
-      /// it works, do not add these to the code above or you'll break the desktop version
+      /// it works, do not add these to the code above or you'll break the desktop version (update: it wont break it if you add the "if conditions" too)
       if (intro && works) {
         intro.style.position = "absolute";
         intro.style.opacity = "0";
@@ -158,7 +160,7 @@ const Work = () => {
       }
     }
 
-    /// check if it's a phone or not
+    /// check if it's a phone or not (can be done better, idk how... yet, too lazy to look it up)
     if (window.innerWidth >= 1279) {
       setIsPhone(false);
     } else {
@@ -177,10 +179,20 @@ const Work = () => {
   }, [percentage, isPhone, opacity, imageId, toggleViewer]);
 
 
+  /// this turns off the viewer from the viewer screen
   const handleToggleViewer = () => {
     setToggleViewer(false);
     setImageId("");
   }
+
+  /// reason behind the conditional return is simple: 
+    /// if it's a mobile device, if the viewer is open, and the work component is only hidden. you can scroll the full length of works
+    /// doesn't happen with desktop version, so I remove the works component when the viewer is on.
+    /// there are better ways to do it I'm sure, maybe I'll look into it later.
+
+  /// alot of this is combined because I found problems with state changes, 
+  /// I wasn't familiar with the intricacies of react states, now I do. I might revisit and change some of this for optimal developer experiences
+  /// but as far as user experience, it works well.
 
   if (isPhone) {
     return (

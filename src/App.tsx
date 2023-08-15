@@ -36,6 +36,8 @@ function useMenuAnimation(isOpen: boolean) {
 
 function App() {
   /// useState Variables
+
+  /// a lot of these states can be combined
   const [openMenu, setOpenMenu] = useState(false); /// toggle Menu
 
   const [workOpen, setWorkOpen] = useState(true); /// Toggle Screens
@@ -53,6 +55,7 @@ function App() {
 
   const openWork = () => {
     /// opens the works screen and closes the others, sets the big title accordingly.
+
     setWorkOpen(true);
     setAboutOpen(false);
     setContactOpen(false);
@@ -125,7 +128,11 @@ function App() {
       {/* Screens */}
       <div className="homescreen">
         <section className="homescreen__components">
-          {bigTitleExists ? <Title dynamicTitle={bigTitle}></Title> : <StaticTitle staticTitle={bigStaticTitle}></StaticTitle>}
+          {bigTitleExists ? (
+            <Title dynamicTitle={bigTitle}></Title>
+          ) : (
+            <StaticTitle staticTitle={bigStaticTitle}></StaticTitle>
+          )}
           {workOpen && <Work />}
           {aboutOpen && <About />}
           {contactOpen && <Contact />}

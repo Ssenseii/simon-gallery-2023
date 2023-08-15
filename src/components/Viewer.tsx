@@ -1,4 +1,3 @@
-import React from 'react'
 import { saveAs } from 'file-saver'
 
 
@@ -9,6 +8,8 @@ interface Props {
 
 
 const Viewer = (props: Props) => {
+
+  /// function for downloading images in Viewer
   
   const handleDownload = () => {
     var source = `images/${props.id}.jpg`;
